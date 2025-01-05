@@ -53,8 +53,8 @@ public class Character {
         this.damage = damage;
     }
 
-    public void setItems(Itemreference[] items) {
-        this.items = items;
+    public void setItems(Itemreference item,int index) {
+        this.items[index] = item;
     }
 
     public void setMoney(int money) {
@@ -65,25 +65,25 @@ public class Character {
         this.dexterity = dexterity;
     }
 
-    public Itemreference[] getItems() {
-        return items;
+    public Itemreference getItems(int index) {
+        return items[index];
     }
 
     public void useItem(int index) {
         if (items[index].getName().contains("Healingselve")) {
-            hp = items[index].effect(hp);
+            setHp(items[index].effect(hp));
         }
         if (items[index].getName().contains("Crystalys")) {
-            damage = items[index].effect(damage);
+            setDamage(items[index].effect(damage));
         }
         if (items[index].getName().contains("Butterfly")) {
-            dexterity = items[index].effect(dexterity);
+            setDexterity(items[index].effect(dexterity));
         }
         if (items[index].getName().contains("SecretApple")) {
-            hp = items[index].effect(hp);
+            setHp(items[index].effect(hp));
         }
         if (items[index].getName().contains("GoldRune")) {
-            money = items[index].effect(money);
+            setMoney(items[index].effect(money));
         }
     }
 
