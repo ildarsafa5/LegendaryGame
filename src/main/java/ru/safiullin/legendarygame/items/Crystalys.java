@@ -1,12 +1,14 @@
 package ru.safiullin.legendarygame.items;
 
+import ru.safiullin.legendarygame.characters.Character;
+
 public class Crystalys extends Item implements Itemreference {
 
-    public Crystalys() {
-
-        super("Crystalys");
+    public Crystalys(Character character) {
+        super("Crystalys",900,null);
+        setCharacter(character);
     }
-    public int effect(int damage) {
-        return damage+500;
+    public void effect() {
+        character.setDamage(character.getDamage()+200);
     }
 }

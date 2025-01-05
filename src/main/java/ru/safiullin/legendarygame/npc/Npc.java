@@ -8,6 +8,7 @@ public class Npc {
     private int hp;
     private int damage;
     private int armor;
+    private int armorsecurity=armor;
 
     public Npc() {
     }
@@ -16,6 +17,14 @@ public class Npc {
         this.hp = hp;
         this.damage = damage;
         this.armor = armor;
+    }
+
+    public int getArmorsecurity() {
+        return armorsecurity;
+    }
+
+    public void setArmorsecurity(int armorsecurity) {
+        this.armorsecurity = armorsecurity;
     }
 
     public void setArmor(int armor) {

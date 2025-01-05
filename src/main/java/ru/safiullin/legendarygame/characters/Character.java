@@ -5,20 +5,39 @@ import ru.safiullin.legendarygame.npc.Npc;
 
 public class Character {
     private int money;
+    protected String name;
     private int hp;
     private int damage;
     private int armor;
     private int dexterity;
+    protected int damagesecurity = damage;
     public Itemreference[] items = new Itemreference[6];
 
     public Character() {
     }
 
-    public Character(int money,int hp, int damage, int dexterity) {
+    public Character(int money,int hp, int damage, int dexterity,int armor) {
         this.hp = hp;
         this.damage = damage;
         this.money = money;
         this.dexterity = dexterity;
+        this.armor = armor;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDamagesecurity() {
+        return damagesecurity;
+    }
+
+    public void setDamagesecurity(int damagesecurity) {
+        this.damagesecurity = damagesecurity;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getHp() {
@@ -71,20 +90,56 @@ public class Character {
 
     public void useItem(int index) {
         if (items[index].getName().contains("Healingselve")) {
-            setHp(items[index].effect(hp));
+            items[index].effect();
         }
         if (items[index].getName().contains("Crystalys")) {
-            setDamage(items[index].effect(damage));
+            items[index].effect();
         }
         if (items[index].getName().contains("Butterfly")) {
-            setDexterity(items[index].effect(dexterity));
+            items[index].effect();
         }
         if (items[index].getName().contains("SecretApple")) {
-            setHp(items[index].effect(hp));
+            items[index].effect();
         }
         if (items[index].getName().contains("GoldRune")) {
-            setMoney(items[index].effect(money));
+            items[index].effect();
         }
+        if (items[index].getName().contains("AmuletofLifeForce")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("BeltofEarthsMight")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("BootsofSpeed")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("DragonsHeart")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("ElixirofUnpredictability")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("ImpregnableBreastplate")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("PantsofSwiftness")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("RingofSpeedandEvasion")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("ShadowDancersGloves")) {
+            items[index].effect();
+        }
+        if (items[index].getName().contains("WarriorDefenderSet")) {
+            items[index].effect();
+        }
+    }
+
+    public void ability1(Npc npc) {
+    }
+
+    public void ability2() {
     }
 
     public void hit(Npc npc) {

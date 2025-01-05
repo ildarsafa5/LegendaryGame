@@ -1,13 +1,14 @@
 package ru.safiullin.legendarygame.items;
 
+import ru.safiullin.legendarygame.characters.Character;
+
 public class Healingselve extends Item implements Itemreference {
-    private String name;
 
-    public Healingselve() {
-
-        super("Healingselve");
+    public Healingselve(Character character) {
+        super("Healingselve",400,null);
+        setCharacter(character);
     }
-    public int effect(int hp) {
-        return hp+300;
+    public void effect() {
+        character.setHp(character.getHp()+300);
     }
 }
