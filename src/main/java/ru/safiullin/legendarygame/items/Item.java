@@ -1,7 +1,16 @@
 package ru.safiullin.legendarygame.items;
 
 public class Item {
-    public void effect() {
+    private String name;
+
+    public Item() {
     }
 
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
