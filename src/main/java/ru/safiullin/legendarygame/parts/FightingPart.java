@@ -3,6 +3,7 @@ package ru.safiullin.legendarygame.parts;
 
 import ru.safiullin.legendarygame.Main;
 import ru.safiullin.legendarygame.characters.Character;
+import ru.safiullin.legendarygame.characters.CharacterActivity;
 import ru.safiullin.legendarygame.npc.Npc;
 
 public class FightingPart {
@@ -13,10 +14,10 @@ public class FightingPart {
     private int npcCounter = 0;
     private boolean skill1Activated = false;
     private boolean skill2Activated = false;
-    private Character player;
+    private CharacterActivity player;
     private Npc npc;
 
-    public FightingPart(Character player, Npc npc) {
+    public FightingPart(CharacterActivity player, Npc npc) {
         this.player = player;
         this.npc = npc;
     }
@@ -24,7 +25,7 @@ public class FightingPart {
     public FightingPart() {
     }
 
-    public Character getPlayer() {
+    public CharacterActivity getPlayer() {
         return player;
     }
 
@@ -60,12 +61,26 @@ public class FightingPart {
         this.npcCounter = npcCounter;
     }
 
-    public void setPlayer(Character player) {
+    public void setPlayer(CharacterActivity player) {
         this.player = player;
     }
 
     public void action() {
         while (true) {
+            if (characterCounterForSkill1==2) {
+                if (player.getName().contains("Gron")) {
+                    npc.setArmor(npc.getArmorsecurity());
+                }
+                characterCounterForSkill1=0;
+                skill1Activated=false;
+            }
+            if (characterCounterForSkill2==2) {
+                if (player.getName().contains("Gron")) {
+                    player.setDamage(player.getDamagesecurity());
+                }
+                characterCounterForSkill2=0;
+                skill2Activated=false;
+            }
             if (reloadingskill2>0 && reloadingskill1>0) {
                 System.out.println("1. Атака");
                 int x = Main.readingInt();
@@ -77,9 +92,11 @@ public class FightingPart {
                 int x = Main.readingInt();
                 switch (x) {
                     case 1: player.hit(npc);
+                            break;
                     case 2: player.ability2();
-                        reloadingskill2++;
-                        skill2Activated = true;
+                            reloadingskill2++;
+                            skill2Activated = true;
+                            break;
                 }
             } else if (reloadingskill2 > 0) {
                 System.out.println("1. Атака");
@@ -87,9 +104,11 @@ public class FightingPart {
                 int x = Main.readingInt();
                 switch (x) {
                     case 1: player.hit(npc);
+                            break;
                     case 2: player.ability1(npc);
-                        reloadingskill1++;
-                        skill1Activated = true;
+                            reloadingskill1++;
+                            skill1Activated = true;
+                            break;
                 }
             } else {
                 System.out.println("1. Атака");
@@ -98,35 +117,24 @@ public class FightingPart {
                 int x = Main.readingInt();
                 switch (x) {
                     case 1: player.hit(npc);
+                            break;
                     case 2: player.ability1(npc);
-                        reloadingskill1++;
-                        skill1Activated = true;
+                            reloadingskill1++;
+                            skill1Activated = true;
+                            break;
                     case 3: player.ability2();
-                        reloadingskill2++;
-                        skill2Activated = true;
+                            reloadingskill2++;
+                            skill2Activated = true;
+                            break;
                 }
             }
             if (skill1Activated) {
                 characterCounterForSkill1++;
             }
-            if (characterCounterForSkill1==3) {
-                if (player.getName().contains("Gron")) {
-                    npc.setArmor(npc.getArmorsecurity());
-                }
-                characterCounterForSkill1=0;
-                skill1Activated=false;
-            }
+
             if (skill2Activated) {
                 characterCounterForSkill2++;
             }
-            if (characterCounterForSkill2==2) {
-                if (player.getName().contains("Gron")) {
-                    player.setDamage(player.getDamagesecurity());
-                }
-                characterCounterForSkill2=0;
-                skill2Activated=false;
-            }
-
             if (npc.getHp() <= 0) {
                 System.out.println("Противник повержен!");
                 break;
@@ -136,7 +144,7 @@ public class FightingPart {
                 System.out.println("Вы погибли");
                 return;
             }
-            System.out.println("Ваше здоровье: " + player.getHp() + " Здоровье противника: " + npc.getHp());
+            System.out.println("Ваше здоровье: " + player.getHp() + " Здоровье противника: " + npc.getHp() + " Броня противника: " + npc.getArmor());
         }
         System.out.println(player.getHp());
     }

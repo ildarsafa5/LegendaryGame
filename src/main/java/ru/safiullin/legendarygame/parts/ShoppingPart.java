@@ -3,23 +3,24 @@ package ru.safiullin.legendarygame.parts;
 
 import ru.safiullin.legendarygame.characters.Character;
 import ru.safiullin.legendarygame.Main;
+import ru.safiullin.legendarygame.characters.CharacterActivity;
 import ru.safiullin.legendarygame.items.Itemreference;
 
 public class ShoppingPart {
-    Character player;
+    CharacterActivity player;
 
     public ShoppingPart() {
     }
 
-    public ShoppingPart(Character player) {
+    public ShoppingPart(CharacterActivity player) {
         this.player = player;
     }
 
-    public Character getPlayer() {
+    public CharacterActivity getPlayer() {
         return player;
     }
 
-    public void setPlayer(Character player) {
+    public void setPlayer(CharacterActivity player) {
         this.player = player;
     }
 

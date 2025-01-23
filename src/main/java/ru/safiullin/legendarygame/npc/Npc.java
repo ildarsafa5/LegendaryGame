@@ -1,6 +1,7 @@
 package ru.safiullin.legendarygame.npc;
 
 import ru.safiullin.legendarygame.characters.Character;
+import ru.safiullin.legendarygame.characters.CharacterActivity;
 
 import java.util.Random;
 
@@ -51,7 +52,7 @@ public class Npc {
         this.hp = hp;
     }
 
-    public void hit(Character character) {
+    public void hit(CharacterActivity character) {
         Random random = new Random();
         int random1 = random.nextInt(100);
         if (random1 > character.getDexterity()) {
@@ -60,6 +61,4 @@ public class Npc {
             return;
         }
     }
-
-
 }
