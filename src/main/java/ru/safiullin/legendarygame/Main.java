@@ -4,6 +4,7 @@ import ru.safiullin.legendarygame.characters.Character;
 import ru.safiullin.legendarygame.characters.CharacterActivity;
 import ru.safiullin.legendarygame.characters.Gron;
 import ru.safiullin.legendarygame.items.*;
+import ru.safiullin.legendarygame.npc.Npc;
 import ru.safiullin.legendarygame.parts.Game;
 import ru.safiullin.legendarygame.parts.ShoppingPart;
 

@@ -10,7 +10,7 @@ public class Character {
     private int damage;
     private int armor;
     private int dexterity;
-    protected int damagesecurity = damage;
+    protected int damagesecurity;
     public Itemreference[] items = new Itemreference[6];
 
     public Character() {

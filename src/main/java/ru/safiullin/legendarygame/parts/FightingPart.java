@@ -66,6 +66,7 @@ public class FightingPart {
     }
 
     public void action() {
+        usingItem();
         while (true) {
             if (characterCounterForSkill1==2) {
                 if (player.getName().contains("Gron")) {

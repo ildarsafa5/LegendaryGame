@@ -9,7 +9,7 @@ public class Npc {
     private int hp;
     private int damage;
     private int armor;
-    private int armorsecurity=armor;
+    private int armorsecurity;
 
     public Npc() {
     }
