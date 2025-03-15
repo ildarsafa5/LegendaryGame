@@ -16,7 +16,6 @@ public class Main {
         game.starting();
         game.addingCharacter();
         game.showingpart(game.getPart2());
-        System.out.println("Всем привет");
     }
 
     public static int readingInt() {
